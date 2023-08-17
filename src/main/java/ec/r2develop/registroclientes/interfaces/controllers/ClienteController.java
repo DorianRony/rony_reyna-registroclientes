@@ -53,7 +53,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/clientes")
-@Tag(name = "Delivery", description = "The Delivery Company API")
+@Tag(name = "Clientes", description = "The Client Company API")
 @ApiResponse(responseCode = "200", description = "Default Response")
 @ApiResponse(responseCode = "401", description = "Unauthorized",
         content = @Content(mediaType = "application/json"))
@@ -117,7 +117,7 @@ public class ClienteController {
     }
 
     @GetMapping("/buscarTodos")
-    @Operation(summary = "Crea cliente.")
+    @Operation(summary = "Buscar todos los clientes")
     public ResponseEntity<List<ClienteResponse>> buscarTodos() {
         List<ClienteResponse> beneficios = clienteService.buscarTodos();
         return ResponseEntity.ok(beneficios);
