@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.2'
 	id 'io.spring.dependency-management' version '1.1.2'
+	id 'pmd'
 }
 
 group = 'ec.r2develop'
@@ -25,11 +26,25 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+	implementation 'org.w3c:dom:2.3.0-jaxb-1.0.6'
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.0'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.0'
+	testImplementation 'junit:junit:4.13.1'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.h2database:h2'
+	implementation 'org.hsqldb:hsqldb'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mockito:mockito-core:3.12.4'
+}
+
+pmd {
+	toolVersion = '6.41.0'
+	ruleSets = [
+			'java-basic',
+			'java-unusedcode'
+	]
 }
 
 tasks.named('test') {
